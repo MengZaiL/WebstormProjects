@@ -20,3 +20,4 @@ console.log(obj);
 fs.readFile('./.gitignore','utf8',function(err,data){
     console.log(arguments)
 })
+
