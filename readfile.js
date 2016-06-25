@@ -21,3 +21,20 @@ fs.readFile('./.gitignore','utf8',function(err,data){
     console.log(arguments)
 })
 
+//创建目录
+mfdirs('a/b/c');
+
+function mfdirs(path){
+    var arr = path.split('/');
+    for(var i=0;i<arr.length;i++)
+    {
+        //每次截取一个路径
+        var cur = arr.slice(0,i+1);
+        console.log(cur);
+        if(fs.existsSync(cur.join('/')))
+        {
+            continue;
+        }
+        fs.mkdirSync(cur.join('/'))
+    }
+}

@@ -12,21 +12,21 @@ A.prototype.eat = function(){
 }
 
 function B(){
-    thia.name ='hh'
+    this.name ='hh'
 }
 
 //原型链集成
-B.prototype._proto_ = A.prototype;
+//B.prototype._proto_ = A.prototype;
+
+B.prototype = Object.create(A.prototype);// 继承方式
 var b = new B();
 b.eat();
 console.log(b.small);
 
-//B.prototype = Object.create(A.prototype); 继承方式
-
 //util.inherits(B,A)
 //NOde继承方式原型链继承
 var obj ={name:'meng',home:'beijing'};
-object.defineProperty(obj,'age',{
+Object.defineProperty(obj,'age',{
     value:100,
     enumerable: true,
     configurable: true
