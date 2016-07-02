@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div ng-controller="cartCtrl">
+       <tr ng-repeat="product in products">
+           <td><input type="checkbox"></td>
+           <td>{{product.name}}</td>
+           <td>{{product.price}}</td>
+           <td><input type="text" ng-model="product.count"></td>
+       </tr>
+   </div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+
+</script>
+</body>
+</html>

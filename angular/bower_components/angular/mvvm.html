@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appMoudle">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <link rel="stylesheet" href="angular-csp.css">
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <!--<div ng-bind-template="{{name}} {{age}}"></div>-->
+        <ul>
+            <li ng-repeat="a in arr track by $index">{{$index}}{{a.name}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = angular.module('appMoudle',[]) ; //param1模块的名字 //param2:模块之剑的依赖 param3 配置
+    /*app.run(function($rootScope){
+        $rootScope.name = 'hello';
+    })
+    app.controller('firstCtrl',function($scope){
+        $scope.name = 'hello';
+        $scope.hello = function(){
+            return 1;
+        }
+    })
+    app.controller('secondCtal',function($scope){
+        $scope.name = 'world'
+    })*/
+
+    //防止压缩
+    app.controller('Ctrl',['$scope','$rootScope','$sce',function(a,b,c){
+        a.name = 'hello';
+        b.age = 5;
+        a.arr =[
+            {name:'da',price:"3000"},
+            {name:'da',price:"300"},
+            {name:'da',price:"30"},
+        ]
+        //var a.h1 = c.trustAsHtml('<h1>daxiaojie</h1>')
+    }])
+    /*app.controller('Ctrl',function($scope){
+        $scope.name = 'hello';
+    })*/
+</script>
+</html>
